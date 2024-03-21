@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 817b4f04a8cacff44886efac395b1706
   - enabled: 1
     path: Assets/Scenes/SystemSettingsMenu.unity
-    guid: d5d11e1a62ae76c49bd15d70e772cb12
+    guid: ba639325c4cd37246bb5c70b7fbb2981
   - enabled: 1
     path: Assets/Scenes/SystemReportMenu.unity
     guid: b50cf5bbac93da840bcc8a045278ac6f
