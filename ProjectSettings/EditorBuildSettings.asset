@@ -6,12 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/deprecated/GameSettingsMenu.unity
-    guid: 817b4f04a8cacff44886efac395b1706
-  - enabled: 1
-    path: Assets/Scenes/deprecated/SystemSettingsMenu.unity
-    guid: ba639325c4cd37246bb5c70b7fbb2981
-  - enabled: 1
-    path: Assets/Scenes/deprecated/SystemReportMenu.unity
-    guid: b50cf5bbac93da840bcc8a045278ac6f
+    path: Assets/Scenes/DriveSimMenuScene.unity
+    guid: e36bd3859d120b240b2d63f87cbcb179
   m_configObjects: {}
