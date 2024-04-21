@@ -58,23 +58,28 @@ public class SystemSettingsManager : MonoBehaviour
 
 
     // METHODS:
-    private static void SteeringWheelFeedbackSliderChanged()
+    private void SteeringWheelFeedbackSliderChanged()
     {
+        GameManager.wheelManager.DefaultMagnitude = (int)(steeringWheelFeedbackSlider.value * 10000);
+        GameManager.wheelManager.RequestEffect(GameManager.wheelManager.defaultEffect, GameManager.wheelManager.DefaultMagnitude);
     }
 
 
-    private static void SteeringWheelSensitivitySliderChanged()
+    private void SteeringWheelSensitivitySliderChanged()
     {
+        GameManager.wheelManager.sensitivity = (int)(steeringWheelSensitivitySlider.value * 5);
     }
 
 
-    private static void PlatformFeedbackSliderChanged()
+    private void PlatformFeedbackSliderChanged()
     {
+        GameManager.platformManager.GAIN = platformFeedbackSlider.value;
     }
 
 
-    private static void ParaplegiaSupportToggleChanged()
+    private void ParaplegiaSupportToggleChanged()
     {
+        GameManager.PARAPLEGIA = paraplegiaSupportToggle.isOn;
     }
 
 }

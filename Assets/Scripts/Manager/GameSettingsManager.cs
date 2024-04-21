@@ -83,53 +83,63 @@ public class GameSettingsManager : MonoBehaviour
 
 
     // METHODS:
-    private static void SlalomActivateToggleChanged()
+    private void SlalomActivateToggleChanged()
     {
+        GameManager.slalomActive = slalomActivateToggle.isOn;
     }
 
 
-    private static void SlalomActivateSliderChanged()
+    private void SlalomActivateSliderChanged()
     {
+        GameManager.ConesDistance = slalomActivateSlider.value;
     }
 
 
-    private static void SlalomDisturbancesToggleChanged()
+    private void SlalomDisturbancesToggleChanged()
     {
+        GameManager.slalomDisturbanceActive = slalomDisturbancesToggle.isOn;
     }
 
 
-    private static void SlalomDisturbancesSliderChanged()
+    private void SlalomDisturbancesSliderChanged()
     {
+        GameManager.slalomDisturbanceModule = slalomDisturbancesSlider.value;
     }
 
 
-    private static void LineKeepingActivateToggleChanged()
+    private void LineKeepingActivateToggleChanged()
     {
+        GameManager.lineKeepingActive = lineKeepingActivateToggle.isOn;
     }
 
 
-    private static void LineKeepingDisturbancesToggleChanged()
+    private void LineKeepingDisturbancesToggleChanged()
     {
+        GameManager.lineKeepingDisturbanceActive = lineKeepingDisturbancesToggle.isOn;
     }
 
 
-    private static void LineKeepingDisturbancesSliderChanged()
+    private void LineKeepingDisturbancesSliderChanged()
     {
+        GameManager.lineKeepingDisturbanceModule = lineKeepingDisturbancesSlider.value;
     }
 
 
-    private static void ReactionTestActivateToggleChanged()
+    private void ReactionTestActivateToggleChanged()
     {
+        GameManager.reactionTestActive = reactionTestActivateToggle.isOn;
     }
 
 
-    private static void SpeedControlActivateToggleChanged()
+    private void SpeedControlActivateToggleChanged()
     {
+        GameManager.speedControlActive  = speedControlActivateToggle.isOn;
     }
 
 
-    private static void SpeedControlActivateSliderChanged()
+    private void SpeedControlActivateSliderChanged()
     {
+        GameManager.speedControlTargetspeed = speedControlActivateSlider.value;
     }
     
 }
