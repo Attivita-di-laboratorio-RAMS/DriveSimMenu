@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Singleton class responsible for managing game settings.
+/// Singleton class responsible for managing System Settings Panel.
 /// </summary>
 public class SystemSettingsManager : MonoBehaviour
 {
