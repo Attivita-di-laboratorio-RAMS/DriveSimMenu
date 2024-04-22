@@ -1,21 +1,19 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SliderScript : MonoBehaviour
 {
-  [SerializeField] private Slider _slider;
-  [SerializeField] private TextMeshProUGUI _sliderText;
-  [SerializeField] private string _placeholder;
+    [SerializeField] private Slider slider;
+    [SerializeField] private TextMeshProUGUI sliderText;
+    [SerializeField] private string placeholder;
 
-  private void Awake()
-  {
-    _slider.onValueChanged.AddListener((v) =>
+    private void Awake()
     {
-      _sliderText.text = v.ToString("0");
-      _sliderText.text= string.Concat(_sliderText.text, " " + _placeholder);
-    });
-  }
+        slider.onValueChanged.AddListener((v) =>
+        {
+            sliderText.text = v.ToString("0");
+            sliderText.text = string.Concat(sliderText.text, " " + placeholder);
+        });
+    }
 }
-

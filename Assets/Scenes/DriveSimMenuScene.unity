@@ -446,7 +446,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 23798983}
-  - component: {fileID: 23798984}
   m_Layer: 5
   m_Name: GameSettingsPanel
   m_TagString: Untagged
@@ -478,32 +477,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &23798984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23798982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a519be32a44825d418bff170b052e373, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slalomActivateToggle: {fileID: 0}
-  slalomActivateSlider: {fileID: 0}
-  slalomActivateSliderText: {fileID: 0}
-  slalomDisturbancesToggle: {fileID: 0}
-  slalomDisturbancesSlider: {fileID: 0}
-  slalomDisturbancesSliderText: {fileID: 0}
-  lineKeepingActivateToggle: {fileID: 0}
-  lineKeepingDisturbancesToggle: {fileID: 0}
-  lineKeepingDisturbancesSlider: {fileID: 0}
-  lineKeepingDisturbancesSliderText: {fileID: 0}
-  reactionTestActivateToggle: {fileID: 0}
-  speedControlActivateToggle: {fileID: 0}
-  speedControlActivateSlider: {fileID: 0}
-  speedControlActivateSliderText: {fileID: 0}
 --- !u!1 &37994298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0%
+  m_text: 0 %
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3381be8e6cc90444f8987076dfdf1706, type: 2}
   m_sharedMaterial: {fileID: 690051219265813942, guid: 3381be8e6cc90444f8987076dfdf1706, type: 2}
@@ -2975,7 +2948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RUNNING
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3381be8e6cc90444f8987076dfdf1706, type: 2}
   m_sharedMaterial: {fileID: 690051219265813942, guid: 3381be8e6cc90444f8987076dfdf1706, type: 2}
@@ -2984,8 +2957,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278421805
-  m_fontColor: {r: 0.1753751, g: 0.5377358, b: 0.012682447, a: 1}
+    rgba: 4281874488
+  m_fontColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3006,8 +2979,8 @@ MonoBehaviour:
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 20
+  m_fontSizeMax: 40
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -3171,7 +3144,7 @@ GameObject:
   - component: {fileID: 257007758}
   - component: {fileID: 257007759}
   m_Layer: 5
-  m_Name: ButtonPanel
+  m_Name: StatusButtonPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3226,6 +3199,7 @@ MonoBehaviour:
   stopButton: {fileID: 537237712}
   homeButton: {fileID: 1612025084}
   statusText: {fileID: 242365266}
+  statusLed: {fileID: 692826909}
 --- !u!1 &290211010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3781,6 +3755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 324847861}
   - component: {fileID: 324847862}
+  - component: {fileID: 324847863}
   m_Layer: 5
   m_Name: Throttle
   m_TagString: Untagged
@@ -3864,6 +3839,21 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &324847863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324847860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f96d7bbf041325448ec17d0b8e7a832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 324847862}
+  sliderText: {fileID: 688444821}
+  placeholder: '%'
 --- !u!1 &331459069
 GameObject:
   m_ObjectHideFlags: 0
@@ -6726,9 +6716,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f96d7bbf041325448ec17d0b8e7a832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 665563347}
-  _sliderText: {fileID: 1211902613}
-  _placeholder: '%'
+  slider: {fileID: 665563347}
+  sliderText: {fileID: 1211902613}
+  placeholder: '%'
 --- !u!1 &677084104
 GameObject:
   m_ObjectHideFlags: 0
@@ -7389,7 +7379,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0%
+  m_text: 0 %
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3381be8e6cc90444f8987076dfdf1706, type: 2}
   m_sharedMaterial: {fileID: 690051219265813942, guid: 3381be8e6cc90444f8987076dfdf1706, type: 2}
@@ -7883,9 +7873,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f96d7bbf041325448ec17d0b8e7a832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 725715923}
-  _sliderText: {fileID: 1550116297}
-  _placeholder: '%'
+  slider: {fileID: 725715923}
+  sliderText: {fileID: 1550116297}
+  placeholder: '%'
 --- !u!114 &725715923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8896,6 +8886,7 @@ GameObject:
   - component: {fileID: 943396283}
   - component: {fileID: 943396284}
   - component: {fileID: 943396285}
+  - component: {fileID: 943396286}
   m_Layer: 5
   m_Name: TabPanel
   m_TagString: Untagged
@@ -8944,19 +8935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7553d1ab734d46b8e9a2a9ea9f0e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contexts:
-  - button: {fileID: 2139692634}
-    panel: {fileID: 2051625236}
-    lineHider: {fileID: 1056571928}
-  - button: {fileID: 817166291}
-    panel: {fileID: 23798982}
-    lineHider: {fileID: 379809930}
-  - button: {fileID: 100479677}
-    panel: {fileID: 1052967170}
-    lineHider: {fileID: 2113742824}
-  - button: {fileID: 1519097444}
-    panel: {fileID: 250516950}
-    lineHider: {fileID: 1893523312}
+  contexts: []
 --- !u!114 &943396285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8987,6 +8966,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &943396286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943396280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7553d1ab734d46b8e9a2a9ea9f0e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contexts:
+  - button: {fileID: 2139692634}
+    panel: {fileID: 2051625236}
+    lineHider: {fileID: 1056571928}
+  - button: {fileID: 817166291}
+    panel: {fileID: 23798982}
+    lineHider: {fileID: 379809930}
+  - button: {fileID: 100479677}
+    panel: {fileID: 1052967170}
+    lineHider: {fileID: 2113742824}
+  - button: {fileID: 1519097444}
+    panel: {fileID: 250516950}
+    lineHider: {fileID: 1893523312}
 --- !u!1 &943920688
 GameObject:
   m_ObjectHideFlags: 0
@@ -9324,9 +9328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f96d7bbf041325448ec17d0b8e7a832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 950658094}
-  _sliderText: {fileID: 531803560}
-  _placeholder: '%'
+  slider: {fileID: 950658094}
+  sliderText: {fileID: 531803560}
+  placeholder: '%'
 --- !u!1 &970146528
 GameObject:
   m_ObjectHideFlags: 0
@@ -9758,9 +9762,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f96d7bbf041325448ec17d0b8e7a832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 1023031339}
-  _sliderText: {fileID: 2134461522}
-  _placeholder: '%'
+  slider: {fileID: 1023031339}
+  sliderText: {fileID: 2134461522}
+  placeholder: '%'
 --- !u!114 &1023031339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9904,6 +9908,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1028725465}
   - component: {fileID: 1028725466}
+  - component: {fileID: 1028725467}
   m_Layer: 5
   m_Name: Brake
   m_TagString: Untagged
@@ -9987,6 +9992,21 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1028725467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028725464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f96d7bbf041325448ec17d0b8e7a832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1028725466}
+  sliderText: {fileID: 1425445802}
+  placeholder: '%'
 --- !u!1 &1052967170
 GameObject:
   m_ObjectHideFlags: 0
@@ -9996,7 +10016,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1052967171}
-  - component: {fileID: 1052967172}
   m_Layer: 5
   m_Name: SystemSettingPanel
   m_TagString: Untagged
@@ -10027,25 +10046,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1052967172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052967170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8b72b1e7ae39d4f8a108c54c050ecf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  steeringWheelFeedbackSlider: {fileID: 0}
-  steeringWheelFeedbackSliderText: {fileID: 0}
-  steeringWheelSensitivitySlider: {fileID: 0}
-  steeringWheelSensitivitySliderText: {fileID: 0}
-  platformFeedbackSlider: {fileID: 0}
-  platformFeedbackSliderText: {fileID: 0}
-  paraplegiaSupportToggle: {fileID: 0}
 --- !u!1 &1054273051
 GameObject:
   m_ObjectHideFlags: 0
@@ -10361,9 +10361,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f96d7bbf041325448ec17d0b8e7a832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 1059191115}
-  _sliderText: {fileID: 1366563354}
-  _placeholder: km/h
+  slider: {fileID: 1059191115}
+  sliderText: {fileID: 1366563354}
+  placeholder: km/h
 --- !u!1 &1086786549
 GameObject:
   m_ObjectHideFlags: 0
@@ -12795,6 +12795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1421926330}
   - component: {fileID: 1421926331}
+  - component: {fileID: 1421926332}
   m_Layer: 5
   m_Name: Clutch
   m_TagString: Untagged
@@ -12878,6 +12879,21 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1421926332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421926329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f96d7bbf041325448ec17d0b8e7a832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1421926331}
+  sliderText: {fileID: 108489323}
+  placeholder: '%'
 --- !u!1 &1425445800
 GameObject:
   m_ObjectHideFlags: 0
@@ -12936,7 +12952,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0%
+  m_text: 0 %
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3381be8e6cc90444f8987076dfdf1706, type: 2}
   m_sharedMaterial: {fileID: 690051219265813942, guid: 3381be8e6cc90444f8987076dfdf1706, type: 2}
@@ -13260,6 +13276,7 @@ GameObject:
   - component: {fileID: 1473974383}
   - component: {fileID: 1473974386}
   - component: {fileID: 1473974384}
+  - component: {fileID: 1473974387}
   m_Layer: 5
   m_Name: ControllerSettings
   m_TagString: Untagged
@@ -13303,9 +13320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bff8af9f02e3b4bbf4fc341fa64ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _throttleButton: {fileID: 295677560}
-  _brakeButton: {fileID: 524094973}
-  _gearButton: {fileID: 844084867}
 --- !u!222 &1473974386
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13314,6 +13328,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473974382}
   m_CullTransparentMesh: 1
+--- !u!114 &1473974387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473974382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec8c1210fdba2844a438377e6165930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assignThrottleButton: {fileID: 295677560}
+  assignBrakeButton: {fileID: 524094973}
+  assignReverseButton: {fileID: 844084867}
 --- !u!1 &1509454958
 GameObject:
   m_ObjectHideFlags: 0
@@ -14152,9 +14181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f96d7bbf041325448ec17d0b8e7a832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 1549703339}
-  _sliderText: {fileID: 373293367}
-  _placeholder: '%'
+  slider: {fileID: 1549703339}
+  sliderText: {fileID: 373293367}
+  placeholder: '%'
 --- !u!114 &1549703339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14445,9 +14474,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f96d7bbf041325448ec17d0b8e7a832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 1554258812}
-  _sliderText: {fileID: 131160494}
-  _placeholder: m
+  slider: {fileID: 1554258812}
+  sliderText: {fileID: 131160494}
+  placeholder: m
 --- !u!1 &1565978792
 GameObject:
   m_ObjectHideFlags: 0
@@ -17923,7 +17952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2051625237
 RectTransform:
   m_ObjectHideFlags: 0
