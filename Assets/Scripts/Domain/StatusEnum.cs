@@ -1,4 +1,4 @@
-﻿namespace Manager
+﻿namespace Domain
 {
     /// <summary>
     /// Enumeration representing the possible states of the machine.

@@ -1,4 +1,5 @@
 using System;
+using Domain;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,19 +26,8 @@ namespace Manager
         [SerializeField] private Button assignThrottleInputButton;
         [SerializeField] private Button assignBrakeInputButton;
         [SerializeField] private Button assignReverseInputButton;
-
-    
-        // SETTINGS VARIABLES
-        private float _steeringWheelFeedbackSliderValue;
-        private float _steeringWheelSensitivitySliderValue;
-        private float _platformFeedbackSliderValue;
-        private bool _paraplegiaSupportToggleValue;
-        private string _currentThrottleInput;
-        private string _currentBrakeInput;
-        private string _currentReverseInput;
-
-
-    
+        
+        
         private void Awake()
         {
             // Singleton pattern ensures only one instance exists
@@ -67,26 +57,25 @@ namespace Manager
         // METHODS:
         private void SteeringWheelFeedbackSliderChanged()
         {
-            //REMOVE COMMENT GameManager.wheelManager.DefaultMagnitude = (int)(steeringWheelFeedbackSlider.value * 10000);
-            //REMOVE COMMENT GameManager.wheelManager.RequestEffect(GameManager.wheelManager.defaultEffect, GameManager.wheelManager.DefaultMagnitude);
+            DataManager.SettingsDataInstance.SteeringWheelFeedbackSliderValue = steeringWheelFeedbackSlider.value;
         }
 
 
         private void SteeringWheelSensitivitySliderChanged()
         {
-            //REMOVE COMMENT GameManager.wheelManager.sensitivity = (int)(steeringWheelSensitivitySlider.value * 5);
+            DataManager.SettingsDataInstance.SteeringWheelSensitivitySliderValue = steeringWheelSensitivitySlider.value;
         }
 
 
         private void PlatformFeedbackSliderChanged()
         {
-            //REMOVE COMMENT GameManager.platformManager.GAIN = platformFeedbackSlider.value;
+            DataManager.SettingsDataInstance.PlatformFeedbackSliderValue = platformFeedbackSlider.value;
         }
 
 
         private void ParaplegiaSupportToggleChanged()
         {
-            //REMOVE COMMENT GameManager.PARAPLEGIA = paraplegiaSupportToggle.isOn;
+            DataManager.SettingsDataInstance.ParaplegiaSupportToggleValue = paraplegiaSupportToggle.isOn;
         }
     
     

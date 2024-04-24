@@ -28,25 +28,10 @@ namespace Manager
         [Header("Reaction Test Settings:")] [SerializeField]
         private Toggle reactionTestActivateToggle;
 
-        [Header("Speed Controll Settings:")] [SerializeField]
+        [Header("Speed Control Settings:")] [SerializeField]
         private Toggle speedControlActivateToggle;
 
         [SerializeField] private Slider speedControlActivateSlider;
-
-
-
-        // SETTINGS VARIABLES
-        private bool _slalomActivateToggleValue;
-        private float _slalomActivateSliderValue;
-        private bool _slalomDisturbancesToggleValue;
-        private float _slalomDisturbancesSliderValue;
-        private bool _lineKeepingActivateToggleValue;
-        private bool _lineKeepingDisturbancesToggleValue;
-        private float _lineKeepingDisturbancesSliderValue;
-        private bool _reactionTestActivateToggleValue;
-        private bool _speedControlActivateToggleValue;
-        private float _speedControlActivateSliderValue;
-
 
 
         private void Awake()
@@ -82,61 +67,61 @@ namespace Manager
         // METHODS:
         private void SlalomActivateToggleChanged()
         {
-            //REMOVE COMMENT GameManager.slalomActive = slalomActivateToggle.isOn;
+            DataManager.SettingsDataInstance.SlalomActivateToggleValue = slalomActivateToggle.isOn;
         }
 
 
         private void SlalomActivateSliderChanged()
         {
-            //REMOVE COMMENT GameManager.ConesDistance = slalomActivateSlider.value;
+            DataManager.SettingsDataInstance.SlalomActivateSliderValue = slalomActivateSlider.value;
         }
 
 
         private void SlalomDisturbancesToggleChanged()
         {
-            //REMOVE COMMENT GameManager.slalomDisturbanceActive = slalomDisturbancesToggle.isOn;
+            DataManager.SettingsDataInstance.SlalomDisturbancesToggleValue = slalomDisturbancesToggle.isOn;
         }
 
 
         private void SlalomDisturbancesSliderChanged()
         {
-            //REMOVE COMMENT GameManager.slalomDisturbanceModule = slalomDisturbancesSlider.value;
+            DataManager.SettingsDataInstance.SlalomActivateSliderValue = slalomActivateSlider.value;
         }
 
 
         private void LineKeepingActivateToggleChanged()
         {
-            //REMOVE COMMENT GameManager.lineKeepingActive = lineKeepingActivateToggle.isOn;
+            DataManager.SettingsDataInstance.LineKeepingActivateToggleValue = lineKeepingActivateToggle.isOn;
         }
 
 
         private void LineKeepingDisturbancesToggleChanged()
         {
-            //REMOVE COMMENT GameManager.lineKeepingDisturbanceActive = lineKeepingDisturbancesToggle.isOn;
+            DataManager.SettingsDataInstance.LineKeepingDisturbancesToggleValue = lineKeepingDisturbancesToggle.isOn;
         }
 
 
         private void LineKeepingDisturbancesSliderChanged()
         {
-            //REMOVE COMMENT GameManager.lineKeepingDisturbanceModule = lineKeepingDisturbancesSlider.value;
+            DataManager.SettingsDataInstance.LineKeepingDisturbancesSliderValue = lineKeepingDisturbancesSlider.value;
         }
 
 
         private void ReactionTestActivateToggleChanged()
         {
-            //REMOVE COMMENT GameManager.reactionTestActive = reactionTestActivateToggle.isOn;
+            DataManager.SettingsDataInstance.ReactionTestActivateToggleValue = reactionTestActivateToggle.isOn;
         }
 
 
         private void SpeedControlActivateToggleChanged()
         {
-            //REMOVE COMMENT GameManager.speedControlActive  = speedControlActivateToggle.isOn;
+            DataManager.SettingsDataInstance.SpeedControlActivateToggleValue = speedControlActivateToggle.isOn;
         }
 
 
         private void SpeedControlActivateSliderChanged()
         {
-            //REMOVE COMMENT GameManager.speedControlTargetspeed = speedControlActivateSlider.value;
+            DataManager.SettingsDataInstance.SpeedControlActivateSliderValue = speedControlActivateSlider.value;
         }
     
     }
