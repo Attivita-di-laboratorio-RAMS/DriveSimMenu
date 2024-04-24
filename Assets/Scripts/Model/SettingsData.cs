@@ -1,5 +1,5 @@
 
-namespace Domain
+namespace Model
 {
     /// <summary>
     /// Singleton class responsible for managing Settings Variables.

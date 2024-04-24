@@ -1,17 +1,17 @@
-using Domain;
+using Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Manager
+namespace Controller.Handler.StatusHandler
 {
     /// <summary>
     /// Singleton class responsible for managing Status/Button Panel.
     /// </summary>
-    public class StatusButtonManager : MonoBehaviour
+    public class StatusButtonHandler : MonoBehaviour
     {
         // SINGLETON:
-        private static StatusButtonManager _instance;
+        private static StatusButtonHandler _instance;
 
         // SERIALIZE FIELDS:
         [Header("Buttons:")]

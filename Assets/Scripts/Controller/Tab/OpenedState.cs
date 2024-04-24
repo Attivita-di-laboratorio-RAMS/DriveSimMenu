@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Tab{
+namespace Controller.Tab{
   /******************************************************/
   // CLASS OpenedState IS A CONCRETE IMPLEMENTATION OF STATE
   /******************************************************/

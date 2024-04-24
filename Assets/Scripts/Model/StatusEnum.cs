@@ -1,4 +1,4 @@
-﻿namespace Domain
+﻿namespace Model
 {
     /// <summary>
     /// Enumeration representing the possible states of the machine.

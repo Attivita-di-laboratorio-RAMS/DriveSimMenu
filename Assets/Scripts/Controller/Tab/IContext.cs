@@ -1,4 +1,4 @@
-namespace Tab{
+namespace Controller.Tab{
   /******************************************************/
   // INTERFACE IContext FROM COMPOSITE AND STATE PATTERN
   // DICTATES THE GENERAL STRUCTURE OF EVERY LEAF

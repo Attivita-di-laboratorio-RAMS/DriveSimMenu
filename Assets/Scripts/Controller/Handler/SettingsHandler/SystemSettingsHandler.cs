@@ -1,17 +1,16 @@
 using System;
-using Domain;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Manager
+namespace Controller.Handler.SettingsHandler
 {
     /// <summary>
     /// Singleton class responsible for managing System Settings Panel.
     /// </summary>
-    public class SystemSettingsManager : MonoBehaviour
+    public class SystemSettingsHandler : MonoBehaviour
     {
         // SINGLETON:
-        private static SystemSettingsManager _instance;
+        private static SystemSettingsHandler _instance;
 
         // SERIALIZE FIELDS:
         [Header("Global Settings:")]

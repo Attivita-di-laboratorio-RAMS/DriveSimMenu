@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Tab{
+namespace Controller.Tab{
   /******************************************************/
   // CLASS TabManager ACTS AS THE CLIENT.
   // HANDLES ALL THE BUTTONS CLICKING EVENT TRIGGERING

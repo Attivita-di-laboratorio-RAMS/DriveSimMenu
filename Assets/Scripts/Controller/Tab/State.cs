@@ -1,4 +1,4 @@
-namespace Tab{
+namespace Controller.Tab{
   /******************************************************/
   // ABSTRACT CLASS State FROM STATE PATTERN
   // DICTATES THE GENERAL STRUCTURE OF EVERY STATE

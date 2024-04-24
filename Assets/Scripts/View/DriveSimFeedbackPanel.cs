@@ -1,15 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Manager
+namespace View
 {
     /// <summary>
     /// Singleton class responsible for managing DriveSim Feedback Panel.
     /// </summary>
-    public class DriveSimFeedbackManager : MonoBehaviour
+    public class DriveSimFeedbackPanel : MonoBehaviour
     {
         // SINGLETON:
-        private static DriveSimFeedbackManager _instance;
+        private static DriveSimFeedbackPanel _instance;
 
         // SERIALIZE FIELDS:
         [Header("Steering Wheel:")]

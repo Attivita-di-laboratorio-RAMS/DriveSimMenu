@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Tab{
+namespace Controller.Tab{
   /******************************************************/
   // CLASS ClosedState IS A CONCRETE IMPLEMENTATION OF STATE
   /******************************************************/

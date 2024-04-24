@@ -1,8 +1,8 @@
 ﻿using System;
-using Domain;
+using Model;
 using UnityEngine;
 
-namespace Manager
+namespace Controller
 {
     /// <summary>
     /// Singleton class responsible for managing Variables Data.

@@ -1,15 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Manager
+namespace Controller.Handler.SettingsHandler
 {
     /// <summary>
     /// Singleton class responsible for managing Game Settings Panel.
     /// </summary>
-    public class GameSettingsManager : MonoBehaviour
+    public class GameSettingsHandler : MonoBehaviour
     {
         // SINGLETON:
-        private static GameSettingsManager _instance;
+        private static GameSettingsHandler _instance;
 
         // SERIALIZE FIELDS:
         [Header("Slalom Settings:")] [SerializeField]

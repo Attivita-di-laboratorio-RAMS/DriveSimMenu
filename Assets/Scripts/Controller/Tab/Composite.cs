@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Tab{
+namespace Controller.Tab{
   /******************************************************/
   // CLASS Composite FROM COMPOSITE PATTERN 
   /******************************************************/
