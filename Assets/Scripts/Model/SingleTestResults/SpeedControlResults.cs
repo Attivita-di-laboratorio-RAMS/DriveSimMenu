@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Model.Results
+namespace Model.SingleTestResults
 {
     public class SpeedControlResults
     {

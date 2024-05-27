@@ -10,10 +10,14 @@ namespace Controller.Handler.SettingsHandler
     {
         // SINGLETON:
         private static GameSettingsHandler _instance;
+        public static GameSettingsHandler Instance => _instance;
 
         // SERIALIZE FIELDS:
-        [Header("Slalom Settings:")] [SerializeField]
-        private Toggle slalomActivateToggle;
+        [Header("Game Settings Panel:")]
+        [SerializeField] private GameObject gameSettingsPanel;
+        
+        [Header("Slalom Settings:")]
+        [SerializeField] private Toggle slalomActivateToggle;
 
         [SerializeField] private Slider slalomActivateSlider;
         [SerializeField] private Toggle slalomDisturbancesToggle;
@@ -36,16 +40,17 @@ namespace Controller.Handler.SettingsHandler
 
         private void Awake()
         {
-            // Singleton pattern ensures only one instance exists
             if (_instance == null)
             {
                 _instance = this;
-                DontDestroyOnLoad(gameObject); // Ensures the SettingsManager persists between scenes
+                DontDestroyOnLoad(gameObject);
             }
             else
             {
-                Destroy(gameObject); // If another instance exists, destroy this one
+                Destroy(gameObject);
             }
+            
+            ForceUpdate();
         }
 
         private void Start()
@@ -73,19 +78,42 @@ namespace Controller.Handler.SettingsHandler
 
         private void SlalomActivateSliderChanged()
         {
-            DataManager.SettingsDataInstance.SlalomActivateSliderValue = slalomActivateSlider.value;
+            if (DataManager.SettingsDataInstance.SlalomActivateToggleValue)
+            {
+                DataManager.SettingsDataInstance.SlalomActivateSliderValue = slalomActivateSlider.value;
+            }
+            else
+            {
+                DataManager.SettingsDataInstance.SlalomActivateSliderValue = 0;
+            }
+            
         }
 
 
         private void SlalomDisturbancesToggleChanged()
         {
-            DataManager.SettingsDataInstance.SlalomDisturbancesToggleValue = slalomDisturbancesToggle.isOn;
+            if (DataManager.SettingsDataInstance.SlalomActivateToggleValue)
+            {
+                DataManager.SettingsDataInstance.SlalomDisturbancesToggleValue = slalomDisturbancesToggle.isOn;
+            }
+            else
+            {
+                DataManager.SettingsDataInstance.SlalomDisturbancesToggleValue = false;
+            }
+            
         }
 
 
         private void SlalomDisturbancesSliderChanged()
         {
-            DataManager.SettingsDataInstance.SlalomActivateSliderValue = slalomActivateSlider.value;
+            if (DataManager.SettingsDataInstance.SlalomActivateToggleValue && DataManager.SettingsDataInstance.SlalomDisturbancesToggleValue)
+            {
+                DataManager.SettingsDataInstance.SlalomDisturbancesSliderValue = slalomDisturbancesSlider.value;
+            }
+            else
+            {
+                DataManager.SettingsDataInstance.SlalomDisturbancesSliderValue = 0;
+            }
         }
 
 
@@ -97,13 +125,27 @@ namespace Controller.Handler.SettingsHandler
 
         private void LineKeepingDisturbancesToggleChanged()
         {
-            DataManager.SettingsDataInstance.LineKeepingDisturbancesToggleValue = lineKeepingDisturbancesToggle.isOn;
+            if (DataManager.SettingsDataInstance.LineKeepingActivateToggleValue)
+            {
+                DataManager.SettingsDataInstance.LineKeepingDisturbancesToggleValue = lineKeepingDisturbancesToggle.isOn;
+            }
+            else
+            {
+                DataManager.SettingsDataInstance.LineKeepingDisturbancesToggleValue = false;
+            }
         }
 
 
         private void LineKeepingDisturbancesSliderChanged()
         {
-            DataManager.SettingsDataInstance.LineKeepingDisturbancesSliderValue = lineKeepingDisturbancesSlider.value;
+            if (DataManager.SettingsDataInstance.LineKeepingActivateToggleValue && DataManager.SettingsDataInstance.LineKeepingDisturbancesToggleValue)
+            {
+                DataManager.SettingsDataInstance.LineKeepingDisturbancesSliderValue = lineKeepingDisturbancesSlider.value;
+            }
+            else
+            {
+                DataManager.SettingsDataInstance.LineKeepingDisturbancesSliderValue = 0;
+            }
         }
 
 
@@ -121,7 +163,56 @@ namespace Controller.Handler.SettingsHandler
 
         private void SpeedControlActivateSliderChanged()
         {
-            DataManager.SettingsDataInstance.SpeedControlActivateSliderValue = speedControlActivateSlider.value;
+            if (DataManager.SettingsDataInstance.SpeedControlActivateToggleValue)
+            {
+                DataManager.SettingsDataInstance.SpeedControlActivateSliderValue = speedControlActivateSlider.value;
+            }
+            else
+            {
+                DataManager.SettingsDataInstance.SpeedControlActivateSliderValue = 0;
+            }
+        }
+
+        public void Disable()
+        {
+            slalomActivateToggle.interactable = false;
+            slalomActivateSlider.interactable = false;
+            slalomDisturbancesToggle.interactable = false;
+            slalomDisturbancesSlider.interactable = false;
+            lineKeepingActivateToggle.interactable = false;
+            lineKeepingDisturbancesToggle.interactable = false;
+            lineKeepingDisturbancesSlider.interactable = false;
+            reactionTestActivateToggle.interactable = false;
+            speedControlActivateToggle.interactable = false;
+            speedControlActivateSlider.interactable = false;
+        }
+        
+        public void Enable()
+        {
+            slalomActivateToggle.interactable = true;
+            slalomActivateSlider.interactable = true;
+            slalomDisturbancesToggle.interactable = true;
+            slalomDisturbancesSlider.interactable = true;
+            lineKeepingActivateToggle.interactable = true;
+            lineKeepingDisturbancesToggle.interactable = true;
+            lineKeepingDisturbancesSlider.interactable = true;
+            reactionTestActivateToggle.interactable = true;
+            speedControlActivateToggle.interactable = true;
+            speedControlActivateSlider.interactable = true;
+        }
+
+        public void ForceUpdate()
+        {
+            SlalomActivateToggleChanged();
+            SlalomActivateSliderChanged();
+            SlalomDisturbancesToggleChanged();
+            SlalomDisturbancesSliderChanged();
+            LineKeepingActivateToggleChanged();
+            LineKeepingDisturbancesToggleChanged();
+            LineKeepingDisturbancesSliderChanged(); 
+            ReactionTestActivateToggleChanged();
+            SpeedControlActivateToggleChanged();
+            SpeedControlActivateSliderChanged();
         }
     
     }

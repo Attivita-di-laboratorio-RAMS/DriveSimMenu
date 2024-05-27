@@ -33,7 +33,7 @@ namespace View
         
             if (_hoveredButton.gameObject == assignThrottleButton.gameObject)
             {
-                if (true)   //CHANGE WITH: GameManager.wheelManager.throttle_Paraplegia
+                if (true)   //TODO: CHANGE WITH: GameManager.wheelManager.throttle_Paraplegia
                 {
                     assignThrottleButton.GetComponent<Image>().color = _assignedColor;
                 }
@@ -44,7 +44,7 @@ namespace View
             }
             else if (_hoveredButton.gameObject == assignBrakeButton.gameObject)
             {
-                if (true)   //CHANGE WITH: GameManager.wheelManager.brake_Paraplegia
+                if (true)   //TODO: CHANGE WITH: GameManager.wheelManager.brake_Paraplegia
                 {
                     assignBrakeButton.GetComponent<Image>().color = _assignedColor;
                 }
@@ -55,7 +55,7 @@ namespace View
             }
             else if (_hoveredButton.gameObject == assignReverseButton.gameObject)
             {
-                if (true)   //CHANGE WITH: GameManager.wheelManager.reverse_Paraplegia
+                if (true)   //TODO: CHANGE WITH: GameManager.wheelManager.reverse_Paraplegia
                 {
                     assignReverseButton.GetComponent<Image>().color = _assignedColor;
                 }

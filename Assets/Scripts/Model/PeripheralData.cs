@@ -1,19 +1,20 @@
-using UnityEngine;
+using System;
+using Unity.VisualScripting;
 
 namespace Model
 {
-    public class PeripheralData : MonoBehaviour
+    /// <summary>
+    /// Singleton class responsible for managing User Results.
+    /// </summary>
+    [Serializable]
+    public class PeripheralData
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        // TODO: implement.
         
-        }
-
-        // Update is called once per frame
-        void Update()
+        // PRIVATE CONSTRUCTOR:
+        private PeripheralData()
         {
-        
         }
+        
     }
 }

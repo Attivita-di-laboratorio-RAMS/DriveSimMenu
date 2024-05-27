@@ -11,8 +11,12 @@ namespace Controller.Handler.SettingsHandler
     {
         // SINGLETON:
         private static SystemSettingsHandler _instance;
+        public static SystemSettingsHandler Instance => _instance;
 
         // SERIALIZE FIELDS:
+        [Header("System Settings Panel:")]
+        [SerializeField] private GameObject systemSettingsPanel;
+        
         [Header("Global Settings:")]
         [SerializeField] private Slider steeringWheelFeedbackSlider;
         [SerializeField] private Slider steeringWheelSensitivitySlider;
@@ -29,16 +33,17 @@ namespace Controller.Handler.SettingsHandler
         
         private void Awake()
         {
-            // Singleton pattern ensures only one instance exists
             if (_instance == null)
             {
                 _instance = this;
-                DontDestroyOnLoad(gameObject); // Ensures the SettingsManager persists between scenes
+                DontDestroyOnLoad(gameObject);
             }
             else
             {
-                Destroy(gameObject); // If another instance exists, destroy this one
+                Destroy(gameObject);
             }
+            
+            ForceUpdate();
         }
 
         private void Start()
@@ -80,19 +85,53 @@ namespace Controller.Handler.SettingsHandler
     
         private void AssignThrottleInputButtonClicked()
         {
-            throw new NotImplementedException();
+            // TODO
         }
 
 
         private void AssignBrakeInputButtonClicked()
         {
-            throw new NotImplementedException();
+            // TODO
         }
 
 
         private void AssignReverseInputButtonClicked()
         {
-            throw new NotImplementedException();
+            // TODO
+        }
+
+
+        public void Disable()
+        {
+            steeringWheelFeedbackSlider.interactable = false;
+            steeringWheelSensitivitySlider.interactable = false;
+            platformFeedbackSlider.interactable = false;
+            paraplegiaSupportToggle.interactable = false;
+            assignThrottleInputButton.interactable = false;
+            assignBrakeInputButton.interactable = false;
+            assignReverseInputButton.interactable = false;
+        }
+        
+        public void Enable()
+        {
+            steeringWheelFeedbackSlider.interactable = true;
+            steeringWheelSensitivitySlider.interactable = true;
+            platformFeedbackSlider.interactable = true;
+            paraplegiaSupportToggle.interactable = true;
+            assignThrottleInputButton.interactable = true;
+            assignBrakeInputButton.interactable = true;
+            assignReverseInputButton.interactable = true;
+        }
+
+        public void ForceUpdate()
+        {
+            SteeringWheelFeedbackSliderChanged();
+            SteeringWheelSensitivitySliderChanged();
+            PlatformFeedbackSliderChanged();
+            ParaplegiaSupportToggleChanged();
+            AssignThrottleInputButtonClicked();
+            AssignBrakeInputButtonClicked();
+            AssignReverseInputButtonClicked();
         }
 
     }

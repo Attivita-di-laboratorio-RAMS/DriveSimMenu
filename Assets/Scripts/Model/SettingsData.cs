@@ -1,53 +1,55 @@
 
+using System;
+using UnityEngine;
+
 namespace Model
 {
     /// <summary>
     /// Singleton class responsible for managing Settings Variables.
     /// </summary>
+    [Serializable]
     public class SettingsData
     {
-        // SINGLETON:
-        private static SettingsData _instance;
         // PRIVATE CONSTRUCTOR:
-        private SettingsData() {}
-        
+        private SettingsData()
+        {
+        }
+
         // SYSTEM STATUS:
         private StatusEnum _systemStatus;
         
+        // CURRENT USER:
+        private string _username = "default";
+        
         // GAME SETTINGS VARIABLES:
-        private bool _slalomActivateToggleValue;
-        private float _slalomActivateSliderValue;
-        private bool _slalomDisturbancesToggleValue;
-        private float _slalomDisturbancesSliderValue;
-        private bool _lineKeepingActivateToggleValue;
-        private bool _lineKeepingDisturbancesToggleValue;
-        private float _lineKeepingDisturbancesSliderValue;
-        private bool _reactionTestActivateToggleValue;
-        private bool _speedControlActivateToggleValue;
-        private float _speedControlActivateSliderValue;
+        [SerializeField] private bool slalomActivateToggleValue;
+        [SerializeField] private float slalomActivateSliderValue;
+        [SerializeField] private bool slalomDisturbancesToggleValue;
+        [SerializeField] private float slalomDisturbancesSliderValue;
+        [SerializeField] private bool lineKeepingActivateToggleValue;
+        [SerializeField] private bool lineKeepingDisturbancesToggleValue;
+        [SerializeField] private float lineKeepingDisturbancesSliderValue;
+        [SerializeField] private bool reactionTestActivateToggleValue;
+        [SerializeField] private bool speedControlActivateToggleValue;
+        [SerializeField] private float speedControlActivateSliderValue;
         
         // SYSTEM SETTINGS VARIABLES:
-        private float _steeringWheelFeedbackSliderValue;
-        private float _steeringWheelSensitivitySliderValue;
-        private float _platformFeedbackSliderValue;
-        private bool _paraplegiaSupportToggleValue;
-        private string _currentThrottleInput;
-        private string _currentBrakeInput;
-        private string _currentReverseInput;
-        
-        
-        // Method to get the singleton instance of SettingsData (factory pattern):
-        public static SettingsData GetInstance()
-        {
-            if (_instance == null)
-            {
-                _instance = new SettingsData();
-            }
-            return _instance;
-        }
+        [SerializeField] private float steeringWheelFeedbackSliderValue;
+        [SerializeField] private float steeringWheelSensitivitySliderValue;
+        [SerializeField] private float platformFeedbackSliderValue;
+        [SerializeField] private bool paraplegiaSupportToggleValue;
+        [SerializeField] private string currentThrottleInput;
+        [SerializeField] private string currentBrakeInput;
+        [SerializeField] private string currentReverseInput;
         
         
         // PROPERTY ACCESSORS:
+        public string Username
+        {
+            get => _username;
+            set => _username = value;
+        }
+        
         public StatusEnum SystemStatus
         {
             get => _systemStatus;
@@ -56,104 +58,105 @@ namespace Model
 
         public bool SlalomActivateToggleValue
         {
-            get => _slalomActivateToggleValue;
-            set => _slalomActivateToggleValue = value;
+            get => slalomActivateToggleValue;
+            set => slalomActivateToggleValue = value;
         }
 
         public float SlalomActivateSliderValue
         {
-            get => _slalomActivateSliderValue;
-            set => _slalomActivateSliderValue = value;
+            get => slalomActivateSliderValue;
+            set => slalomActivateSliderValue = value;
         }
 
         public bool SlalomDisturbancesToggleValue
         {
-            get => _slalomDisturbancesToggleValue;
-            set => _slalomDisturbancesToggleValue = value;
+            get => slalomDisturbancesToggleValue;
+            set => slalomDisturbancesToggleValue = value;
         }
 
         public float SlalomDisturbancesSliderValue
         {
-            get => _slalomDisturbancesSliderValue;
-            set => _slalomDisturbancesSliderValue = value;
+            get => slalomDisturbancesSliderValue;
+            set => slalomDisturbancesSliderValue = value;
         }
 
         public bool LineKeepingActivateToggleValue
         {
-            get => _lineKeepingActivateToggleValue;
-            set => _lineKeepingActivateToggleValue = value;
+            get => lineKeepingActivateToggleValue;
+            set => lineKeepingActivateToggleValue = value;
         }
 
         public bool LineKeepingDisturbancesToggleValue
         {
-            get => _lineKeepingDisturbancesToggleValue;
-            set => _lineKeepingDisturbancesToggleValue = value;
+            get => lineKeepingDisturbancesToggleValue;
+            set => lineKeepingDisturbancesToggleValue = value;
         }
 
         public float LineKeepingDisturbancesSliderValue
         {
-            get => _lineKeepingDisturbancesSliderValue;
-            set => _lineKeepingDisturbancesSliderValue = value;
+            get => lineKeepingDisturbancesSliderValue;
+            set => lineKeepingDisturbancesSliderValue = value;
         }
 
         public bool ReactionTestActivateToggleValue
         {
-            get => _reactionTestActivateToggleValue;
-            set => _reactionTestActivateToggleValue = value;
+            get => reactionTestActivateToggleValue;
+            set => reactionTestActivateToggleValue = value;
         }
 
         public bool SpeedControlActivateToggleValue
         {
-            get => _speedControlActivateToggleValue;
-            set => _speedControlActivateToggleValue = value;
+            get => speedControlActivateToggleValue;
+            set => speedControlActivateToggleValue = value;
         }
 
         public float SpeedControlActivateSliderValue
         {
-            get => _speedControlActivateSliderValue;
-            set => _speedControlActivateSliderValue = value;
+            get => speedControlActivateSliderValue;
+            set => speedControlActivateSliderValue = value;
         }
 
         public float SteeringWheelFeedbackSliderValue
         {
-            get => _steeringWheelFeedbackSliderValue;
-            set => _steeringWheelFeedbackSliderValue = value;
+            get => steeringWheelFeedbackSliderValue;
+            set => steeringWheelFeedbackSliderValue = value;
         }
 
         public float SteeringWheelSensitivitySliderValue
         {
-            get => _steeringWheelSensitivitySliderValue;
-            set => _steeringWheelSensitivitySliderValue = value;
+            get => steeringWheelSensitivitySliderValue;
+            set => steeringWheelSensitivitySliderValue = value;
         }
 
         public float PlatformFeedbackSliderValue
         {
-            get => _platformFeedbackSliderValue;
-            set => _platformFeedbackSliderValue = value;
+            get => platformFeedbackSliderValue;
+            set => platformFeedbackSliderValue = value;
         }
 
         public bool ParaplegiaSupportToggleValue
         {
-            get => _paraplegiaSupportToggleValue;
-            set => _paraplegiaSupportToggleValue = value;
+            get => paraplegiaSupportToggleValue;
+            set => paraplegiaSupportToggleValue = value;
         }
 
         public string CurrentThrottleInput
         {
-            get => _currentThrottleInput;
-            set => _currentThrottleInput = value;
+            get => currentThrottleInput;
+            set => currentThrottleInput = value;
         }
 
         public string CurrentBrakeInput
         {
-            get => _currentBrakeInput;
-            set => _currentBrakeInput = value;
+            get => currentBrakeInput;
+            set => currentBrakeInput = value;
         }
 
         public string CurrentReverseInput
         {
-            get => _currentReverseInput;
-            set => _currentReverseInput = value;
+            get => currentReverseInput;
+            set => currentReverseInput = value;
         }
+
     }
 }
