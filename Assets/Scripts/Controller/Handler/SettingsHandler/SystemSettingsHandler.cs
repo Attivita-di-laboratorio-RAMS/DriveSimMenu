@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,8 +41,6 @@ namespace Controller.Handler.SettingsHandler
             {
                 Destroy(gameObject);
             }
-            
-            ForceUpdate();
         }
 
         private void Start()
@@ -123,7 +120,7 @@ namespace Controller.Handler.SettingsHandler
             assignReverseInputButton.interactable = true;
         }
 
-        public void ForceUpdate()
+        public void GetAll()
         {
             SteeringWheelFeedbackSliderChanged();
             SteeringWheelSensitivitySliderChanged();
@@ -132,6 +129,19 @@ namespace Controller.Handler.SettingsHandler
             AssignThrottleInputButtonClicked();
             AssignBrakeInputButtonClicked();
             AssignReverseInputButtonClicked();
+        }
+
+        public void SetAll()
+        {
+            steeringWheelFeedbackSlider.value = DataManager.SettingsDataInstance.SteeringWheelFeedbackSliderValue;
+            steeringWheelFeedbackSlider.value = DataManager.SettingsDataInstance.SteeringWheelSensitivitySliderValue;
+            platformFeedbackSlider.value = DataManager.SettingsDataInstance.PlatformFeedbackSliderValue;
+            paraplegiaSupportToggle.isOn = DataManager.SettingsDataInstance.ParaplegiaSupportToggleValue;
+            /*  TODO: implement
+                = DataManager.SettingsDataInstance.CurrentThrottleInput;
+                = DataManager.SettingsDataInstance.CurrentBrakeInput;
+                = DataManager.SettingsDataInstance.CurrentReverseInput;
+             */
         }
 
     }

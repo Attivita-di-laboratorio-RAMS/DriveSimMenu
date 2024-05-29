@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
+using System.Linq;
 using Model;
 using Model.SingleTestResults;
 using UnityEngine;
 using System.Reflection;
 using Controller.Handler.SettingsHandler;
+using Newtonsoft.Json;
 
 namespace Controller
 {
@@ -100,15 +104,54 @@ namespace Controller
         // DATA EXPORT METHODS:
         public void SaveSettings(string fileName)
         {
-            GameSettingsHandler.Instance.ForceUpdate();
-            SystemSettingsHandler.Instance.ForceUpdate();
+            GameSettingsHandler.Instance.GetAll();
+            SystemSettingsHandler.Instance.GetAll();
             var content = JsonUtility.ToJson(SettingsDataInstance, true);
             File.WriteAllText(SettingsPath + fileName + Extension, content);
         }
 
+
         public void LoadSettings(string fileName)
         {
-            throw new NotImplementedException();
+            var fileStr = File.ReadAllText(SettingsPath + fileName + Extension);
+            
+            char[] delimiterChars = { '{', '}', '"', ' ', ',', ':', '\t', '\n' };
+            string[] savedSettings = fileStr.Split(delimiterChars);     //parse file into a string array
+            savedSettings = savedSettings.Where(x => !string.IsNullOrEmpty(x)).ToArray();   //remove empty strings
+
+           /* DEBUG PRINT:
+            int i = 0;
+            foreach (var word in savedSettings)
+            {
+                i++;
+                Debug.Log(i + ": " + word);
+            }
+            */
+            
+            DataManager.SettingsDataInstance.SlalomActivateToggleValue = ToBool(savedSettings[1]);
+            DataManager.SettingsDataInstance.SlalomActivateSliderValue = float.Parse(savedSettings[3]);
+            DataManager.SettingsDataInstance.SlalomDisturbancesToggleValue = ToBool(savedSettings[5]);
+            DataManager.SettingsDataInstance.SlalomDisturbancesSliderValue = float.Parse(savedSettings[7]);
+            DataManager.SettingsDataInstance.LineKeepingActivateToggleValue = ToBool(savedSettings[9]);
+            DataManager.SettingsDataInstance.LineKeepingDisturbancesToggleValue = ToBool(savedSettings[11]);
+            DataManager.SettingsDataInstance.LineKeepingDisturbancesSliderValue = float.Parse(savedSettings[13]);
+            DataManager.SettingsDataInstance.ReactionTestActivateToggleValue = ToBool(savedSettings[15]);
+            DataManager.SettingsDataInstance.SpeedControlActivateToggleValue = ToBool(savedSettings[17]);
+            DataManager.SettingsDataInstance.SpeedControlActivateSliderValue = float.Parse(savedSettings[19]);
+            DataManager.SettingsDataInstance.SteeringWheelFeedbackSliderValue = float.Parse(savedSettings[21]);
+            DataManager.SettingsDataInstance.SteeringWheelSensitivitySliderValue = float.Parse(savedSettings[23]);
+            DataManager.SettingsDataInstance.PlatformFeedbackSliderValue = float.Parse(savedSettings[25]);
+            DataManager.SettingsDataInstance.ParaplegiaSupportToggleValue = ToBool(savedSettings[27]);
+            
+            /* TODO: implement (ora se non sono impostati controlli le strighe sono vuote e vengono rimosse, questo genera ArrayOutOfBound)
+            DataManager.SettingsDataInstance.CurrentThrottleInput = savedSettings[29];
+            DataManager.SettingsDataInstance.CurrentBrakeInput = savedSettings[31];
+            DataManager.SettingsDataInstance.CurrentReverseInput = savedSettings[33];
+            */
+
+            GameSettingsHandler.Instance.SetAll();
+            SystemSettingsHandler.Instance.SetAll();
+            
         }
 
         public void SaveReport(string fileName)
@@ -116,5 +159,18 @@ namespace Controller
             var content = JsonUtility.ToJson(ResultsDataInstance, true);
             File.WriteAllText(ReportPath + fileName + Extension, content);
         }
+
+        private bool ToBool(string str)
+        {
+            if (string.Compare(str, "true") == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
     }
 }

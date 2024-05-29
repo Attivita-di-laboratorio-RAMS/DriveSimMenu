@@ -49,8 +49,6 @@ namespace Controller.Handler.SettingsHandler
             {
                 Destroy(gameObject);
             }
-            
-            ForceUpdate();
         }
 
         private void Start()
@@ -201,7 +199,7 @@ namespace Controller.Handler.SettingsHandler
             speedControlActivateSlider.interactable = true;
         }
 
-        public void ForceUpdate()
+        public void GetAll()   // TODO: metodo getAll e uno SetAll (in modo da avere direzionalità nell'update: tipo SettingsData>GUI o GUI>SettingsData)
         {
             SlalomActivateToggleChanged();
             SlalomActivateSliderChanged();
@@ -213,6 +211,20 @@ namespace Controller.Handler.SettingsHandler
             ReactionTestActivateToggleChanged();
             SpeedControlActivateToggleChanged();
             SpeedControlActivateSliderChanged();
+        }
+
+        public void SetAll()
+        {
+            slalomActivateToggle.isOn = DataManager.SettingsDataInstance.SlalomActivateToggleValue;
+            slalomActivateSlider.value = DataManager.SettingsDataInstance.SlalomActivateSliderValue;
+            slalomDisturbancesToggle.isOn = DataManager.SettingsDataInstance.SlalomDisturbancesToggleValue;
+            slalomDisturbancesSlider.value = DataManager.SettingsDataInstance.SlalomDisturbancesSliderValue;
+            lineKeepingActivateToggle.isOn = DataManager.SettingsDataInstance.LineKeepingActivateToggleValue;
+            lineKeepingDisturbancesToggle.isOn = DataManager.SettingsDataInstance.LineKeepingDisturbancesToggleValue;
+            lineKeepingDisturbancesSlider.value = DataManager.SettingsDataInstance.LineKeepingDisturbancesSliderValue;
+            reactionTestActivateToggle.isOn = DataManager.SettingsDataInstance.ReactionTestActivateToggleValue;
+            speedControlActivateToggle.isOn = DataManager.SettingsDataInstance.SpeedControlActivateToggleValue;
+            speedControlActivateSlider.value = DataManager.SettingsDataInstance.SpeedControlActivateSliderValue;
         }
     
     }
