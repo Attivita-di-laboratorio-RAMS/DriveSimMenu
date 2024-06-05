@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+using System.Data;
 using System.IO;
 using System.Linq;
 using Model;
@@ -8,12 +7,11 @@ using Model.SingleTestResults;
 using UnityEngine;
 using System.Reflection;
 using Controller.Handler.SettingsHandler;
-using Newtonsoft.Json;
 
 namespace Controller
 {
     /// <summary>
-    /// Singleton class responsible for managing and exporting RESULTS and SETTINGS DATA.
+    /// Singleton class responsible for managing and exporting RESULTS, SETTINGS DATA and PERIPHERAL DATA.
     /// </summary>
     public class DataManager
     {
@@ -34,6 +32,7 @@ namespace Controller
         // ATTRIBUTES:
         private const string SettingsPath = @"Assets/SettingsOUT/";
         private const string ReportPath = @"Assets/ReportOUT/";
+        private const string PeripheralDataPath = @"Assets/PeripheralDataOUT/";
         private const string Extension = ".json";
 
         // SETTINGS DATA FACTORY
@@ -55,7 +54,7 @@ namespace Controller
         }
         
         
-        // SETTINGS DATA FACTORY
+        // RESULT DATA FACTORY
         // DataManager is responsible for the instantiation of ResultsData (done through REFLECTION because ResultsData has a private constructor).
         // Also, DataManager is the only one that can directly access ResultsData. 
         private static ResultsData _resultsDataInstance = ResultsDataInstance;
@@ -70,6 +69,24 @@ namespace Controller
                         _resultsDataInstance = (ResultsData)resultsDataConstructor.Invoke(null);
                 }
                 return _resultsDataInstance;
+            }
+        }
+        
+        
+        // PERIPHERAL DATA FACTORY
+        // DataManager is responsible for the instantiation of PeripheralData (done through REFLECTION because PeripheralData has a private constructor).
+        private static PeripheralData _peripheralDataInstance = PeripheralDataInstance;
+        public static PeripheralData PeripheralDataInstance     
+        {
+            get
+            {
+                if (_peripheralDataInstance == null)
+                {
+                    ConstructorInfo peripheralDataConstructor = typeof(PeripheralData).GetConstructor(BindingFlags.Instance | BindingFlags.NonPublic, null, new Type[0], null);
+                    if (peripheralDataConstructor != null)
+                        _peripheralDataInstance = (PeripheralData)peripheralDataConstructor.Invoke(null);
+                }
+                return _peripheralDataInstance;
             }
         }
         
@@ -97,6 +114,18 @@ namespace Controller
         public void AddSpeedControlResult(TimeSpan elapsedTime, float maxDeviation, float errorMean, float standardDeviation, float errorRms)
         {
             ResultsDataInstance.SpeedControlResults.Add(new SpeedControlResults((DateTime.Now-elapsedTime), elapsedTime, ResultsDataInstance.SpeedControlResults.Count, maxDeviation, errorMean, standardDeviation, errorRms));
+        }
+        
+        
+        // PERIPHERAL DATA METHODS:
+        public void InitializePeripheralData(string[] variableNames)
+        {
+            PeripheralDataInstance.InitializePeripheralData(variableNames);
+        }
+
+        public void AddPeripheralData(float[] variables)
+        {
+            PeripheralDataInstance.AddPeripheralData(variables);
         }
 
 
@@ -159,6 +188,17 @@ namespace Controller
             var content = JsonUtility.ToJson(ResultsDataInstance, true);
             File.WriteAllText(ReportPath + fileName + Extension, content);
         }
+        
+        
+        public void SavePeripheralData(string fileName)
+        {
+            var content = JsonUtility.ToJson(ResultsDataInstance, true);
+            File.WriteAllText(ReportPath + fileName + Extension, content);
+
+            DataTable myTable = PeripheralDataInstance.PeripheralDataTable;
+            myTable.WriteXml(PeripheralDataPath + fileName);
+        }
+        
 
         private bool ToBool(string str)
         {
