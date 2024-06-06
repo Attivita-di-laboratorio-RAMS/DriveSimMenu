@@ -58,7 +58,7 @@ namespace Controller
         // DataManager is responsible for the instantiation of ResultsData (done through REFLECTION because ResultsData has a private constructor).
         // Also, DataManager is the only one that can directly access ResultsData. 
         private static ResultsData _resultsDataInstance = ResultsDataInstance;
-        private static ResultsData ResultsDataInstance     
+        public static ResultsData ResultsDataInstance     
         {
             get
             {
@@ -192,9 +192,6 @@ namespace Controller
         
         public void SavePeripheralData(string fileName)
         {
-            var content = JsonUtility.ToJson(ResultsDataInstance, true);
-            File.WriteAllText(ReportPath + fileName + Extension, content);
-
             DataTable myTable = PeripheralDataInstance.PeripheralDataTable;
             myTable.WriteXml(PeripheralDataPath + fileName);
         }

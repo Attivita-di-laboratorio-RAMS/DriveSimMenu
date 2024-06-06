@@ -1,6 +1,4 @@
-﻿using Controller.Handler.SettingsHandler;
-using Model;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Controller
