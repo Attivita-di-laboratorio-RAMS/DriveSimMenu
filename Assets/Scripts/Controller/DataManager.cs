@@ -58,7 +58,7 @@ namespace Controller
         // DataManager is responsible for the instantiation of ResultsData (done through REFLECTION because ResultsData has a private constructor).
         // Also, DataManager is the only one that can directly access ResultsData. 
         private static ResultsData _resultsDataInstance = ResultsDataInstance;
-        public static ResultsData ResultsDataInstance     
+        private static ResultsData ResultsDataInstance     
         {
             get
             {
@@ -76,7 +76,7 @@ namespace Controller
         // PERIPHERAL DATA FACTORY
         // DataManager is responsible for the instantiation of PeripheralData (done through REFLECTION because PeripheralData has a private constructor).
         private static PeripheralData _peripheralDataInstance = PeripheralDataInstance;
-        public static PeripheralData PeripheralDataInstance     
+        private static PeripheralData PeripheralDataInstance     
         {
             get
             {
