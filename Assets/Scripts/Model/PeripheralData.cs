@@ -16,7 +16,8 @@ namespace Model
         }
         
         // TABLE:
-        private DataTable _peripheralDataTable = new DataTable();
+        private DataTable _peripheralDataTable;
+        private bool _isInitialized = false;
 
         public DataTable PeripheralDataTable
         {
@@ -26,6 +27,8 @@ namespace Model
         // METHODS:
         public void InitializePeripheralData(string[] variableNames)
         {
+            _peripheralDataTable = new DataTable();
+            _isInitialized = true;
             foreach (var name in variableNames)
             {
                 _peripheralDataTable.Columns.Add(name, typeof(float));
@@ -34,12 +37,27 @@ namespace Model
 
         public void AddPeripheralData(float[] variables)
         {
-            var i = 1;
-            foreach (var variable in variables)
+            if (_isInitialized)
             {
-                _peripheralDataTable.Rows.Add(i, variable);
-                i++;
+                if (_peripheralDataTable.Columns.Count == variables.Length)
+                {
+                    var i = 1;
+                    foreach (var variable in variables)
+                    {
+                        _peripheralDataTable.Rows.Add(i, variable);
+                        i++;
+                    }
+                }
+                else
+                {
+                    throw new ArgumentException("Input Array Length is incompatible with the instantiated Peripheral Data Table.");
+                }
             }
+            else
+            {
+                throw new InvalidOperationException("Peripheral Data Table is not instantiated.");
+            }
+            
         }
     }
 }
