@@ -113,7 +113,7 @@ namespace Controller
         
         public void AddSpeedControlResult(TimeSpan elapsedTime, float maxDeviation, float errorMean, float standardDeviation, float errorRms)
         {
-            ResultsDataInstance.SpeedControlResults.Add(new SpeedControlResults((DateTime.Now-elapsedTime), elapsedTime, ResultsDataInstance.SpeedControlResults.Count, maxDeviation, errorMean, standardDeviation, errorRms));
+            ResultsDataInstance.SpeedControlResults.Add(new SpeedControlResult((DateTime.Now-elapsedTime), elapsedTime, ResultsDataInstance.SpeedControlResults.Count, maxDeviation, errorMean, standardDeviation, errorRms));
         }
         
         

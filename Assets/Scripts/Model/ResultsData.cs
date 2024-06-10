@@ -20,7 +20,7 @@ namespace Model
         [SerializeField] private List<SlalomResult> _slalomResults = new List<SlalomResult>();
         [SerializeField] private List<LineKeepingResult> _lineKeepingResults = new List<LineKeepingResult>();
         [SerializeField] private List<ReactionTestResult> _reactionTestResults = new List<ReactionTestResult>();
-        [SerializeField] private List<SpeedControlResults> _speedControlResults = new List<SpeedControlResults>();
+        [SerializeField] private List<SpeedControlResult> _speedControlResults = new List<SpeedControlResult>();
 
         public List<SlalomResult> SlalomResults
         {
@@ -40,7 +40,7 @@ namespace Model
             set => _reactionTestResults = value;
         }
 
-        public List<SpeedControlResults> SpeedControlResults
+        public List<SpeedControlResult> SpeedControlResults
         {
             get => _speedControlResults;
             set => _speedControlResults = value;
