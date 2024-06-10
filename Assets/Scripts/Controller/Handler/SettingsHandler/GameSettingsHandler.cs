@@ -18,23 +18,20 @@ namespace Controller.Handler.SettingsHandler
         
         [Header("Slalom Settings:")]
         [SerializeField] private Toggle slalomActivateToggle;
-
         [SerializeField] private Slider slalomActivateSlider;
         [SerializeField] private Toggle slalomDisturbancesToggle;
         [SerializeField] private Slider slalomDisturbancesSlider;
 
-        [Header("Line Keeping Settings:")] [SerializeField]
-        private Toggle lineKeepingActivateToggle;
-
+        [Header("Line Keeping Settings:")]
+        [SerializeField] private Toggle lineKeepingActivateToggle;
         [SerializeField] private Toggle lineKeepingDisturbancesToggle;
         [SerializeField] private Slider lineKeepingDisturbancesSlider;
 
-        [Header("Reaction Test Settings:")] [SerializeField]
-        private Toggle reactionTestActivateToggle;
+        [Header("Reaction Test Settings:")]
+        [SerializeField] private Toggle reactionTestActivateToggle;
 
-        [Header("Speed Control Settings:")] [SerializeField]
-        private Toggle speedControlActivateToggle;
-
+        [Header("Speed Control Settings:")]
+        [SerializeField] private Toggle speedControlActivateToggle;
         [SerializeField] private Slider speedControlActivateSlider;
 
 

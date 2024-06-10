@@ -33,7 +33,6 @@ namespace Controller
         private const string SettingsPath = @"Assets/SettingsOUT/";
         private const string ReportPath = @"Assets/ReportOUT/";
         private const string PeripheralDataPath = @"Assets/PeripheralDataOUT/";
-        private const string Extension = ".json";
 
         // SETTINGS DATA FACTORY
         // DataManager is responsible for the instantiation of SettingsData (done through REFLECTION because SettingsData has a private constructor).
@@ -136,13 +135,13 @@ namespace Controller
             GameSettingsHandler.Instance.GetAll();
             SystemSettingsHandler.Instance.GetAll();
             var content = JsonUtility.ToJson(SettingsDataInstance, true);
-            File.WriteAllText(SettingsPath + fileName + Extension, content);
+            File.WriteAllText(SettingsPath + fileName + ".json", content);
         }
 
 
         public void LoadSettings(string fileName)
         {
-            var fileStr = File.ReadAllText(SettingsPath + fileName + Extension);
+            var fileStr = File.ReadAllText(SettingsPath + fileName + ".json");
             
             char[] delimiterChars = { '{', '}', '"', ' ', ',', ':', '\t', '\n' };
             string[] savedSettings = fileStr.Split(delimiterChars);     //parse file into a string array
@@ -186,7 +185,7 @@ namespace Controller
         public void SaveReport(string fileName)
         {
             var content = JsonUtility.ToJson(ResultsDataInstance, true);
-            File.WriteAllText(ReportPath + fileName + Extension, content);
+            File.WriteAllText(ReportPath + fileName + ".json", content);
         }
         
         
